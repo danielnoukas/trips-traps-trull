@@ -3,6 +3,9 @@ const statusDisplay = document.querySelector('.game--status');
 let gameActive = true;
 let currentPlayer = "X";
 let gameState = ["", "", "", "", "", "", "", "", ""];
+let playerOscore = 0
+let playerXscore = 0
+let draw = 0
 
 const winningMessage = () => `Mängija ${currentPlayer} võitis!`;
 const drawMessage = () => `Mäng lõppes viigiga!`;
@@ -45,11 +48,24 @@ function handleResultValidation() {
             roundWon = true;
             break
         }
+
     }
 
+    
     if (roundWon) {
         statusDisplay.innerHTML = winningMessage();
         gameActive = false;
+        console.log(currentPlayer);
+        if (currentPlayer === "X") {
+    
+            playerXscore++
+            
+        } else if (currentPlayer === "O") {
+            playerOscore++
+            
+        }
+         
+        console.log(playerXscore, draw, playerOscore);
         return;
     }
 
@@ -57,6 +73,9 @@ function handleResultValidation() {
     if (roundDraw) {
         statusDisplay.innerHTML = drawMessage();
         gameActive = false;
+        console.log(drawMessage());
+        draw++
+        console.log(playerXscore, draw, playerOscore);
         return;
     }
 
@@ -85,3 +104,7 @@ function handleRestartGame() {
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+
+
+
+
