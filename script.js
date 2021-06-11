@@ -7,9 +7,9 @@ let playerOscore = 0
 let playerXscore = 0
 let draw = 0
 
-const winningMessage = () => `Mängija ${currentPlayer} võitis!`;
-const drawMessage = () => `Mäng lõppes viigiga!`;
-const currentPlayerTurn = () => `${currentPlayer}' kord on`;
+const winningMessage = () => `Pelur ${currentPlayer} võitis lahingu!`;
+const drawMessage = () => `Mäng lõppes viigiga, keegi ei võitnud!`;
+const currentPlayerTurn = () => `${currentPlayer}' kord otsus teha`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
 
