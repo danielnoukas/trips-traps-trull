@@ -105,6 +105,11 @@ function handleRestartGame() {
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 
-
+function changeScore(newScore) {
+    var elem = document.getElementById('skoorX');
+    elem.textContent = newScore;
+    changeScore();
+    return;
+}
 
 
