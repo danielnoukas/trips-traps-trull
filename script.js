@@ -66,6 +66,7 @@ function handleResultValidation() {
         }
          
         console.log(playerXscore, draw, playerOscore);
+        changeScore(playerXscore, draw, playerOscore);
         return;
     }
 
@@ -76,6 +77,7 @@ function handleResultValidation() {
         console.log(drawMessage());
         draw++
         console.log(playerXscore, draw, playerOscore);
+        changeScore(playerXscore, draw, playerOscore);
         return;
     }
 
@@ -105,11 +107,12 @@ function handleRestartGame() {
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 
-function changeScore(newScore) {
+function changeScore(playerXscore, draw, playerOscore) {
     var elem = document.getElementById('skoorX');
-    elem.textContent = newScore;
-    changeScore();
+    var elum = document.getElementById('skoorD');
+    var elim = document.getElementById('skoorO');
+    elem.innerHTML = playerXscore;
+    elum.innerHTML = draw;
+    elim.innerHTML = playerOscore;
     return;
 }
-
-
